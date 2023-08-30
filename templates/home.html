@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <title>Flight Fare Prediction</title>
+</head>
+<style>
+  #source{
+    border: navy;
+    /* border-bottom: 2px solid #00000080; */
+    font-size: 22px;
+    padding: 7px 0 5px 0;
+    outline: none;
+  }
+  #Destination{
+    border: navy;
+    /* border-bottom: 2px solid #00000080; */
+    font-size: 22px;
+    padding: 7px 0 5px 0;
+    outline: none;
+  }
+  #stops{
+    border: navy;
+    /* border-bottom: 2px solid #00000080; */
+    font-size: 22px;
+    padding: 7px 0 5px 0;
+    outline: none;
+  }
+  #airline{
+    border: navy;
+    /* border-bottom: 2px solid #00000080; */
+    font-size: 22px;
+    padding: 7px 0 5px 0;
+    outline: none;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+    color: red;
+  }
+
+  img {
+    margin-left: 0px;
+    width: 1200px;
+    
+
+  }
+  th{
+    padding: 13px 3px;
+    font-size: 24px;
+    padding-right: 47px;
+    font-family: -webkit-pictograph;
+    
+  }
+
+  .img1::before {
+    content: "";
+    position: absolute;
+    background: url('flight2.jpg') no-repeat center center;
+    height: 642px;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+  }
+
+  hr {
+    color: rgb(0, 0, 0);
+  }
+
+  .tb table {
+    border: 10px;
+    color: black;
+    background:#ffffff1c;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+   
+    margin: auto;
+
+
+
+
+
+
+  }
+  .tb  {
+    border: 10px;
+    color: black;
+    background: white;
+    background:#ffffff1c;    text-align: center;
+    justify-content: center;
+    align-items: center;
+   
+    margin: 0 500px;
+    padding: 50px 0;
+    box-sizing: border-box;
+
+
+
+
+
+
+
+  }
+  input[type="datetime-local"]{
+    outline: none;
+    border: navajowhite;
+    background: transparent;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    color: #0000008a;
+
+  }
+  button{
+    padding: 10px 27px;
+    margin-right: 40px;
+    font-size: 20px;
+    background: #071bab91;
+    color: white;
+    border: none;
+    border-radius: 27px;
+    border: 5px solid #969fe6;
+
+  }
+</style>
+
+<body>
+  <form action="/predict" method="post">
+
+    <h1>Predict the Flight Price</h1>
+    <hr>
+
+    <div class="img1">
+      <div class="main">
+
+
+        <div class="tb">
+          <div class="head">
+            <!-- <h2>Apna Flight</h2> -->
+          </div>
+          <table>
+
+            <tr>
+              <th>Departure</th>
+              <td><input type="datetime-local" name="datedep" id="datedep"></td>
+            </tr>
+            <tr>
+              <th>Arrival</th>
+              <td><input type="datetime-local" name="datearr"  id="datearr"></td>
+            </tr>
+            <tr>
+              <th>Source</th>
+              <td><select name="source" id="source">
+                  <option value="Delhi">Delhi</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Bangolore">Bangalore</option>
+                </select></td>
+            </tr>
+            <tr>
+              <th>Destination</th>
+              <td><select name="Destination" id="Destination">
+                  <option value="Delhi">Delhi</option>
+                  <option value="New_Delhi">New Delhi</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Bangolore">Bangolore</option>
+                  <option value="Cochin">Cochin</option>
+                </select></td>
+            </tr>
+            <tr>
+              <th>Stopage</th>
+              <td><select name="stops" id="stops">
+                  <option value="0">Non-Stop</option>
+                  <option value="1">1-Stop</option>
+                  <option value="2">2-Stop</option>
+                  <option value="3">3-Stop</option>
+                  <option value="4">4-Stop</option>
+                </select></td>
+            </tr>
+            <tr>
+              <th>Select Airlines</th>
+              <td><select name="airline" id="airline">
+                  <option value="Jet Airways">Jet Airways</option>
+                  <option value="Indigo">IndiGo</option>
+                  <option value="Air India">Air India</option>
+                  <option value="Multiple carriers">Multiple carriers</option>
+                  <option value="GoAir">GoAir</option>
+                  <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+                  <option value="Jet Airways Business">Jet Airways Business</option>
+                  <option value="Vistara Prenium economy ">Vistara Premium economy</option>
+                  <option value="Vistara">Vistara</option>
+                  <option value="Air Asia">Air Asia</option>
+                  <option value="Trujet">Trujet</option>
+                </select></td>
+            </tr>
+
+
+          </table>
+
+          <button type="submit" value="Submit">Predict</button>
+          <button type="reset">Clear</button>
+          <br>
+          <br>
+          <h2>{{ prediction_text }}</h2>
+        </div>
+
+      </div>
+
+    </div>
+    
+
+
+</body>
+</form>
+
+</html>
